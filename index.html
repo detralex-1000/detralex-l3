@@ -361,12 +361,12 @@
   <div class="card fail-card">
     <div class="eyebrow">Անհաջողություն</div>
     <h1>Դուք պարտվեցիք</h1>
-    <p class="sub">Սխալների սահմանաչափը լրացել է։<br>Վերսկսեք մակարդակը՝ կրկին փորձելու համար։</p>
+    <p class="sub">Սխալների սահմանաչափը լրացել է։<br>Վերադարձեք գլխավոր էջ՝ կրկին փորձելու համար։</p>
     <div class="stat-grid" style="grid-template-columns:1fr 1fr;">
       <div class="stat-box"><div class="val" id="fail-time">00:00</div><div class="lab">Ժամանակ</div></div>
       <div class="stat-box"><div class="val" id="fail-mistakes">3 / 3</div><div class="lab">Սխալներ</div></div>
     </div>
-    <button class="primary-btn" id="fail-restart-btn">Վերսկսել մակարդակը</button>
+    <button class="primary-btn" id="fail-restart-btn">Գլխավոր էջ</button>
   </div>
 </div>
 
@@ -401,7 +401,7 @@
     </div>
     <div class="breakdown-list" id="fr-breakdown"></div>
     <div class="fr-rating" id="fr-rating">Հիանալի արդյունք!</div>
-    <button class="primary-btn" id="fr-again-btn" style="width:100%;">Խաղալ կրկին</button>
+    <button class="primary-btn" id="fr-again-btn" style="width:100%;">Գլխավոր էջ</button>
   </div>
 </div>
 
@@ -1583,6 +1583,8 @@
     stopTimer();
     session.elapsedSeconds = 0; // a whole new playthrough starts the clock at zero again
     el.finalResultsOverlay.hidden = true;
+    el.failureOverlay.hidden = true;
+    el.levelCompleteOverlay.hidden = true;
     showScreen(Screen.START);
   }
 
@@ -1599,7 +1601,7 @@
       restartCurrentLevel();
     });
 
-    el.failRestartBtn.addEventListener("click", restartCurrentLevel);
+    el.failRestartBtn.addEventListener("click", resetGame);
 
     el.lcReplayBtn.addEventListener("click", restartCurrentLevel);
     el.lcNextBtn.addEventListener("click", startNextLevel);
